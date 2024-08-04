@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: .
 website:
   title: "Workshop on Advanced Literate Programming and Machine Learning"
   site-url: https://intelligentsystemslaboratory.github.io/quarto_workshop/
