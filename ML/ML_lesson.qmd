@@ -19,11 +19,8 @@ format:
     mermaid:
       theme: dark
   revealjs:
-    output-file: slides-ML.html
-    width: 960
-    height: 700
-    css: assets/style.css
-    mermaid:
+    default:
+      mermaid:
       theme: dark
 ---
 
