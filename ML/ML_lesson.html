@@ -239,48 +239,38 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">graph TD
-    A[Machine Learning Algorithms] --&gt; B[Supervised Learning]
+<pre class="mermaid mermaid-js">graph LR
+    A[Machine Learning]
+    A --&gt; B[Supervised Learning]
     A --&gt; C[Unsupervised Learning]
     A --&gt; D[Reinforcement Learning]
+    
+    B --&gt; B1[Classification]
+    B --&gt; B2[Regression]
+    
+    B1 --&gt; B1a[Decision Trees]
+    B1 --&gt; B1b[Random Forests]
+    B1 --&gt; B1c[SVM]
+    B1 --&gt; B1d[Neural Networks]
+    
+    B2 --&gt; B2a[Linear Regression]
+    B2 --&gt; B2b[Polynomial Regression]
+    B2 --&gt; B2c[Ridge Regression]
+    
+    C --&gt; C1[Clustering]
+    C --&gt; C2[Dimensionality Reduction]
+    
+    C1 --&gt; C1a[K-Means]
+    C1 --&gt; C1b[Hierarchical Clustering]
+    C1 --&gt; C1c[DBSCAN]
+    
+    C2 --&gt; C2a[PCA]
+    C2 --&gt; C2b[LDA]
+    
+    D --&gt; D1[Q-Learning]
+    D --&gt; D2[Deep Q-Networks]
+    D --&gt; D3[Policy Gradient Methods]
 
-    B --&gt; E[Classification]
-    B --&gt; F[Regression]
-
-    E --&gt; G[Decision Trees]
-    E --&gt; H[Random Forests]
-    E --&gt; I[Support Vector Machines]
-    E --&gt; J[Neural Networks]
-
-    F --&gt; K[Linear Regression]
-    F --&gt; L[Polynomial Regression]
-    F --&gt; M[Ridge Regression]
-
-    C --&gt; N[Clustering]
-    C --&gt; O[Dimensionality Reduction]
-
-    N --&gt; P[K-Means Clustering]
-    N --&gt; Q[Hierarchical Clustering]
-    N --&gt; R[DBSCAN]
-
-    O --&gt; S[Principal Component Analysis (PCA)]
-    O --&gt; T[Linear Discriminant Analysis (LDA)]
-
-    D --&gt; U[Q-Learning]
-    D --&gt; V[Deep Q-Networks (DQN)]
-    D --&gt; W[Policy Gradient Methods]
-
-    %% Styling %%
-    classDef main fill:#f5f5f5,stroke:#333,stroke-width:2px;
-    classDef supervised fill:#e6f7ff,stroke:#0056b3;
-    classDef unsupervised fill:#e6ffe6,stroke:#004d00;
-    classDef reinforcement fill:#fff5e6,stroke:#cc6600;
-
-    class A,main;
-    class B,C,D,supervised,unsupervised,reinforcement;
-    class E,F,supervised;
-    class N,O,unsupervised;
-    class U,V,W,reinforcement;
 </pre>
 </div>
 <p></p></figure><p></p>
