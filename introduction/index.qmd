@@ -1,0 +1,334 @@
+---
+title: Introduction to Literate Programming with Quarto
+subtitle: <a href="slides-quarto.html" target="_blank"></a>
+author: 
+  - name:
+      given: Siju
+      family: Swamy
+    #orcid: 0000-0001-8925-424X
+    email: siju.swamy@saintgits.org
+    affiliations:
+      - name: Saintgits
+        city: Kottayam
+        country: India
+        postal-code: 686572
+    attributes:
+        equal-contributor: False
+format:
+  html:
+    mermaid:
+      theme: dark
+  revealjs:
+    output-file: slides-quarto.html
+    width: 960
+    height: 700
+    css: assets/style.css
+    mermaid:
+      theme: dark
+---
+
+:::: {.content-hidden when-format="revealjs"}
+## Day 1: Unleashing Literate Programming with Quarto
+
+**Introduction**
+
+Welcome to Day 1 of our workshop! Today, we embark on an exploration of literate programming through the powerful open-source tool, Quarto. Literate programming is a methodology that integrates code and documentation, allowing for clearer, more maintainable, and more insightful technical writing. By the end of today, you'll gain hands-on experience with Quarto, learning how to craft high-quality technical documents, build interactive web pages, and create engaging blogs. Our sessions are designed to provide both theoretical knowledge and practical skills, equipping you with the tools to effectively communicate your code and ideas. Let’s dive into the world of literate programming and see how Quarto can transform your documentation practices.
+::::
+# Publishing workflow
+
+:::: {.content-hidden when-format="revealjs"}
+:::{note}
+
+:::
+::::
+
+::: {.content-hidden when-format="revealjs"}
+The **publishing workflow** is the process in which external resources are
+prepared and collated together with the help of an **authoring tool** and
+subsequently rendered with a **formatting tool** to generate a publishable
+output that can be delivered in various forms.  This is visualised by the
+following figure.
+:::
+
+```{mermaid}
+---
+Publishing workflow
+---
+%%{ init : { "theme" : "neutral", "flowchart" : { "curve" : "stepBefore" }}}%%
+flowchart LR
+  
+    E1("(1)\nExternal resources"):::external -.-> A1
+    A1{{"(2)\nAuthoring tool"}} --> I1("(3)\nText + Figures +\nCode + Tables + ..."):::input
+    I1 --> P1{{"(4)\nFormatting tool"}}
+    P1 --> O1["(5)\nFormatted\nOutput"]:::output
+    O1 -.-> D1{{"(6)\nDelivery system"}}:::delivery
+    classDef external fill:#eee,stroke:#666,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef input fill:#ffa;
+    classDef output fill:#faa;
+    classDef delivery stroke:#666,stroke-width:2px,stroke-dasharray: 5 5;
+```
+
+An example of the creation of a personal website. You collect **(1)** material to
+publish in your website data, figures, analyses, and results, those
+resources are put together with **(2)** an Integrated Development Environment
+like Visual Studio creating **(3)** an organised hierarchy of files and text
+that includes formatting information, then using **(4)** a formatting tool like
+Jekyll all the artefacts are combined into **(5)** a website of html and other
+files that can be **(6)** hosted in a web server. 
+
+# Quarto is a formatting tool
+
+::: {.content-hidden when-format="revealjs"}
+**Formatting tools** take input artefacts produced by authoring tools and
+produce publishable formatted output.  While many of the authoring tools
+discussed in the previous section are well-known, there have been many recent
+developments in formatting tools that deserve to be better known in the
+academic community as they take opportunities for publishing training material
+to the next level. In the previous section we described the two
+paradigms  [](sec:SISO) (SISO) and [](sec:SIMO) (SIMO). In
+this section we describe some _formatting tools_ that can be used for the SIMO
+paradigm.
+:::
+
+```{mermaid}
+%%{ init : { "theme" : "neutral", "flowchart" : { "curve" : "stepBefore" }}}%%
+
+flowchart LR
+  
+    E1("External resources"):::external -.-> A1
+    A1{{"Authoring tool"}} --> I1("Text + Figures +\nCode + Tables + ..."):::input
+    subgraph "Quarto, pdflatex, xelatex, pandoc, ..." 
+      direction LR
+      I1 --> P1{{"Quarto\nFormatting tool"}}:::quarto
+      P1 --> O1["Formatted\nOutput"]:::output
+    end
+    classDef external fill:#eee;
+    classDef input fill:#ffa;
+    classDef output fill:#faa;
+    classDef quarto fill:#75aadb,color:#000;
+```
+
+
+# Quarto supports Single-In-Multi-Out
+
+::: {.content-hidden when-format="revealjs"}
+The creation of research or academic material usually involves the production
+of slides, documents, posters and other output formats from the same material.
+There are different paradigms to create publishing material: 
+
+- **Single-In-Single-Out tools**: Specialise in generating one type of output.
+    - E.g. text documents with [Microsoft
+      Word](https://www.microsoft.com/en-gb/microsoft-365/word), [Libre Office
+Writer](https://www.libreoffice.org/discover/writer/),
+[LaTeX](https://www.latex-project.org/); slide decks with [Microsoft
+PowerPoint](https://www.microsoft.com/en-gb/microsoft-365/powerpoint),
+[LibreOffice Impress](https://www.libreoffice.org/discover/impress/), [LaTeX
+Beamer](https://ctan.org/pkg/beamer), [Reveal.js](https://revealjs.com/), or
+[Google Slides](https://workspace.google.com/intl/en_uk/products/slides/); and
+posters with [Microsoft
+Publisher](https://www.microsoft.com/en-gb/microsoft-365/publisher), Google
+Slides, LaTeX, etc.
+- **Single-In-Multi-Out tools**: Can generate multiple types of publication
+  formats from a joint set of input artefacts.
+- **Multi-In-Multi-Out tools**: Can generate multiple types of publication
+  formats by composing input artefacts from different locations.
+
+
+More recent publishing systems allow the generation of multiple types of
+publication formats from a joint set of input artefacts. We refer to this
+paradigm as Single-In-Multi-Out (SIMO). This paradigm offers various
+benefits, among them: 
+- keeping  the artefacts in a single, well-defined location which facilitates consistency, management and findability; 
+- keeping a unique source of history changes and versions which is useful for auditing and
+transparency; and 
+- not duplicating artefacts that are not changed between different publishing systems.
+:::
+
+```{mermaid}
+%%{ init : { "theme" : "neutral", "flowchart" : { "curve" : "stepBefore" }}}%%
+
+flowchart LR
+    I1("(3)\nText + Figures + \n Code + ..."):::input --- dummy2{{"(4) Quarto\nFormatting tool"}}:::quarto
+    dummy2 --> O1["(5a) Published \n Paper \n (PDF)"]
+    dummy2 --> O2["(5b) Presentation \n Slides \n (PPTX/PDF)"]
+    dummy2 --> O3["(5c) Poster \n (PPTX/PDF)"]
+    dummy2 --> O4["(5d) Computational \n Notebook \n (Colab)"]
+    classDef input fill:#ffa;
+    style O1 fill:#fca
+    style O2 fill:#bff
+    style O3 fill:#f99
+    style O4 fill:#bfb
+    classDef quarto fill:#75aadb,color:#000;
+```
+
+::: {.content-hidden when-format="revealjs"}
+Nowadays, the SIMO type of formatting tool is becoming more common, and we 
+focus on the state-of-the-art formatting tools that fall into this category in this roadmap.
+The roadmap document itself is an example of one particular tool (`Jupyter Book`), while the
+rest of the document and use cases also include examples built with `Quarto`. A description of these
+and other publishing tools is provided with more detail in the next section
+[](sec:formatting-tools).
+:::
+
+# Available for multiple OS
+
+![](assets/images/get_started_step1.jpg)
+
+# Using quarto {.smaller}
+
+```shell
+$ quarto --help
+
+  render     [input] [args...]     - Render files or projects to various document types.
+  preview    [file] [args...]      - Render and preview a document or website project.  
+  serve      [input]               - Serve a Shiny interactive document.                
+  create     [type] [commands...]  - Create a Quarto project or extension               
+  use        <type> [target]       - Automate document or project setup tasks.          
+  add        <extension>           - Add an extension to this folder or project         
+  update     [target...]           - Updates an extension or global dependency.         
+  remove     [target...]           - Removes an extension.                              
+  convert    <input>               - Convert documents to alternate representations.    
+  pandoc     [args...]             - Run the version of Pandoc embedded within Quarto.  
+  typst      [args...]             - Run the version of Typst embedded within Quarto.   
+  run        [script] [args...]    - Run a TypeScript, R, Python, or Lua script.        
+  install    [target...]           - Installs a global dependency (TinyTex or Chromium).
+  uninstall  [tool]                - Removes an extension.                              
+  tools                            - Display the status of Quarto installed dependencies
+  publish    [provider] [path]     - Publish a document or project to a provider.       
+  check      [target]              - Verify correct functioning of Quarto installation. 
+  help       [command]             - Show this help or the help of a sub-command.
+```
+
+## Getting started
+
+- Get started documentation: [quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+- Open-source repository in GitHub: [Quarto-cli](https://github.com/quarto-dev/quarto-cli)
+- Create a project with `quarto create project`
+    - Type: default, website, blog, manuscript, book, confluence
+- Build project with `quarto render`
+- Preview with `quarto preview` (it autobuilds and updates when changes in the
+  source files are detected).
+
+
+# Authoring tools
+
+::: {.content-hidden when-format="revealjs"}
+**Authoring tools** facilitate the creation of input artefacts (e.g. plain
+text, markup language, tables, figures, code, or equations) which will be
+compiled and rendered by a _formatting tool_ to generate publishable outputs.
+For example, a markup language editor to create LaTeX is an authoring tool,
+while `pdflatex`, `XeLaTeX`, or `LuaTeX` are formatting tools that compile
+input artefacts to pdf. These tools need to integrate metadata about the format
+in which the artefacts need to be formatted in different output types.
+For example, the font of the text and its position, the position of figures,
+tables and other elements. In this roadmap we focus on authoring tools that
+can be used for the purpose of multi-output publishing systems. We provide some
+guidelines on the type of files that need to be considered during the authoring
+process, which tools can directly help on the generation of those artefacts. We
+consider the collaboration of teams in the authoring process as a desirable
+feature.
+:::
+
+```{mermaid}
+%%{ init : { "theme" : "neutral", "flowchart" : { "curve" : "stepBefore" }}}%%
+flowchart LR
+  
+    E1("External resources"):::external -.-> A1
+    subgraph "Vim, NeoVim, Notepad" 
+      direction LR
+      A1{{"Authoring tool"}} --> I1("Text + Code +\nTables + ..."):::input
+    end
+    I1 --> P1{{"Quarto\nFormatting tool"}}:::quarto
+    P1 --> O1["Formatted\nOutput"]:::output
+    classDef external fill:#eee;
+    classDef input fill:#ffa;
+    classDef output fill:#faa;
+    classDef quarto fill:#75aadb,color:#000;
+```
+
+::: {.content-hidden when-format="revealjs"}
+Authoring tools that do not incorporate part of the formatting are rare, as it
+is common to provide at least a preview of the formatted output.
+Examples of authoring that can be separated from the formatting step are simple
+text editors like vim, NeoVim, Notepad, and general-purpose Integrated
+Development Environments (IDEs).
+:::
+
+# Authoring with formatting (IDE + Quarto)
+
+::: {.content-hidden when-format="revealjs"}
+There are **authoring tools** that incorporate a **formatting tool**.  While in
+some situations it is a good practice to separate the two aspects, some
+computer programs integrate them in one tool that may (or may not) provide
+access to the intermediate artefacts. For example, Overleaf
+provides an online collaborative authoring platform that integrates with
+_pdfLatex_ in the back-end. 
+:::
+
+```{mermaid}
+%%{ init : { "theme" : "neutral", "flowchart" : { "curve" : "stepBefore" }}}%%
+flowchart LR
+  
+    E1("External resources"):::external -.-> A1
+    subgraph "IDE + Quarto" 
+      direction LR
+      A1{{"IDE\nAuthoring tool"}} --> I1("Text + Figures +\nCode + Tables + ..."):::input
+      I1 --> P1{{"Quarto\nFormatting tool"}}:::quarto
+      P1 --> O1["Formatted\nOutput"]:::output
+    end
+    classDef external fill:#eee;
+    classDef input fill:#ffa;
+    classDef output fill:#faa;
+    classDef quarto fill:#75aadb,color:#000;
+```
+
+## Integrated Development Environments
+
+::: {.content-hidden when-format="revealjs"}
+The separation of the source code and the publishable outputs is something that
+all Integrated Development Environments (IDEs) provide. These are tools for
+writing computer programs that commonly require a compilation phase which is
+usually integrated in the same tool. The idea of authoring tools that can
+create generic input artefacts that are later combined by a formatting tool
+is very similar to the common process followed in programming compiled
+programming languages. This has facilitate the adoption of IDEs as authoring
+tools. Microsoft Visual Studio and [Posit
+Workbench](https://posit.co/products/enterprise/workbench/) (formerly
+[RStudio](https://posit.co/download/rstudio-desktop/)) have tools to work with
+the `Quarto` environment. Both of them provide options for collaborative and 
+contemporaneous editing.
+:::
+
+::: {.content-visible when-format="revealjs"}
+`Quarto` is integrated in multiple IDEs
+:::
+
+![](assets/images/get_started_step2.jpg)
+
+# Then, what is Quarto?
+
+::: {.content-hidden when-format="revealjs"}
+
+[Quarto](https://quarto.org) is an open-source publishing system with the
+objective of facilitating the creation of scientific content.  Quarto is
+sponsored by [Posit](https://posit.co), and follows the development of the R
+Markdown publishing system extending the focus from the programming language R
+to Python, Julia and Observable. It supports Jupyter notebooks, markdown and
+their own extension `Quarto` markdown. The conversion to different output
+formats is done with [pandoc](https://pandoc.org/), which is able to produce
+presentations (Reveal.js), dashboards, websites, blogs, books, PDFs, Microsoft
+Word, ePub and more. Quarto is integrated into multiple authoring environments
+like Microsoft Visual Studio, Jupyter Lab,
+[Rstudio](https://posit.co/download/rstudio-desktop/), and [Atlassian
+Confluence](https://www.atlassian.com/software/confluence) among others. 
+
+## Key points about Quarto {.smaller}
+:::
+
+- `Quarto` is a formatting tool
+- uses pandoc to convert the input artefacts to various outputs.
+- supports plain text markdown, Jupyter notebooks and an augmented markdown, 
+- supports dynamic content with Python, R, Julia and Observable
+  programming languages.
+- is integrated in multiple IDEs: Visual Studio, Posit Connect (former
+  RMarkdown), Atlassian Confluence, ...

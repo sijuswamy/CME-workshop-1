@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "Workshop on Advanced Literate Programming and Machine Learning"
+  site-url: https://intelligentsystemslaboratory.github.io/quarto_workshop/
+  repo-url: https://github.com/IntelligentSystemsLaboratory/quarto_workshop
+  repo-branch: main
+  repo-actions: [issue]
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd    
+  sidebar:
+    style: "docked"
+    logo: "./images/workshop_cover.png"
+    search: true
+    collapse-level: 2
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: introduction/index.qmd
+        text: Introduction
+      - introduction/setup.qmd
+      - hands_on.qmd
+      - href: ML/ML_lesson.qmd
+        text: ML Project
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+# Additional extensions for Sphinx
+sphinx:
+  config:
+    html_js_files:
+    - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+  extra_extensions:
+    - sphinxcontrib.mermaid # Draw diagrams with Mermaid

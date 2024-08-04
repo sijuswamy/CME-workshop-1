@@ -1,0 +1,56 @@
+---
+title: "Quarto Hands on Workshop"
+
+author: 
+  - name:
+      given: Siju
+      family: Swamy
+    #orcid: 0000-0001-8925-424X
+    email: siju.swamy@saintgits.org
+    affiliations:
+      - name: Saintgits College of Engineering (Autonomous)
+        city: Kottayam
+        country: India
+        postal-code: 686532
+  - name: Jobin Jose
+    email: jobin.jose@saintgits.org
+    affiliations:
+      - name: Saintgits College of Engineering (Autonomous)
+        city: Kottayam
+        country: India
+        postal-code: 686532
+---
+
+# About the Workshop
+
+We are pleased to announce that the Department of Computer Science and Engineering, in collaboration with the Department of Mathematics, is hosting a two-day workshop to highlight the transformative power of open-source tools in literate programming and machine learning.
+
+# About Quarto
+
+The Quarto publication system is a versatile and powerful tool designed for creating dynamic documents, presentations, websites, and more. It seamlessly integrates text, code, and outputs, making it an ideal choice for data scientists, researchers, and educators who need to combine narrative with analysis. Quarto supports a wide range of programming languages, including R, Python, and Julia, allowing users to embed live code within their documents. Its flexibility extends to output formats as well, enabling the production of HTML, PDF, Word documents, and more, all from a single source file. By leveraging Markdown and advanced features such as citations and cross-referencing, Quarto facilitates the creation of professional and reproducible documents that cater to diverse audiences and purposes.
+
+Join us for this hands-on introductory tutorial to the Quarto publishing system. You will learn how to use Quarto to set up a personal academic website, advertise your work, build a blogging environment, as well as create slides, pdf's or other online materials. At the end of the session you will have the main structure for your personal website, hosted for free in GitHub and with a simple and automatic deployment workflow using GitHub actions. We will provide use case examples and a step-by-step guide to follow along the session.
+
+### Agenda
+
+- 9:00 Introduction to Literate Programming
+- 9.10 Testimonials
+- 9.20 Introduction to Quarto
+- 9:25 Get Started 
+- 9.50 Break
+- Hands-on
+    - 10:00 Installation and system set-up
+    - 11:00 Website Design
+    - 12.30 Lunch Break
+    - 01.20 Blog Design
+    - 02.30 Hosting Sites
+    - 03:30 Break
+    - 03.45 Personalizing Websites & Blogs
+    - 04.20 Day 1 concluding session
+
+
+### Reserve your spot. 
+
+Places are limited, please register by filling out the form below. The form will be closed when no more spots are available. 
+
+[https://forms.gle/wyGmPozDT1y3MPuE7](Click here for register:)
