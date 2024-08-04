@@ -7,7 +7,7 @@
     "text": "Before diving into literate programming with Quarto, ensure that your development environment is properly set up. Follow these steps to install and configure the necessary tools:",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -18,7 +18,7 @@
     "text": "Before diving into literate programming with Quarto, ensure that your development environment is properly set up. Follow these steps to install and configure the necessary tools:",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -29,7 +29,7 @@
     "text": "Step 1: Install Python\nPython is essential for this workshop as it is integral to Quarto for executing code within documents, accessing a wide range of libraries and tools for data analysis and machine learning, and enabling script execution. It also integrates seamlessly with Visual Studio Code, our recommended IDE, to enhance coding efficiency and support advanced machine learning tasks. By installing Python, you set up a powerful environment that supports both technical documentation and complex computational projects.\n\nDownload and Install Python\n\nGo to the official Python website.\nDownload the latest stable version of Python suitable for your operating system (Windows, macOS, or Linux).\nRun the installer and ensure you check the box to “Add Python to PATH” during installation.\nFollow the on-screen instructions to complete the installation.",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -40,7 +40,7 @@
     "text": "Step 2: Install Visual Studio Code (VS Code)\n\nDownload and Install Visual Studio Code (VS Code)\n\nVisit the official VS Code website.\nDownload the installer for your operating system.\nRun the installer and follow the prompts to install VS Code.\nAfter installation, open VS Code and install the recommended extensions:\n\nPython Extension: Search for “Python” in the Extensions view (Ctrl+Shift+X) and install it.\nQuarto Extension: Search for “Quarto” in the Extensions view and install it.",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -51,7 +51,7 @@
     "text": "Step 3: Install Quarto CLI\nQuarto CLI is crucial as it allows you to create, render, and manage Quarto documents and projects. Quarto CLI integrates seamlessly with your development environment, enabling you to compile literate programming documents that combine code and narrative effectively. It supports various output formats, including HTML, PDF, and slides, and facilitates the integration of code with documentation. By installing Quarto CLI, you equip yourself with the necessary tools to manage and execute Quarto projects efficiently, making it a key component of your setup for this workshop.\n\nDownload and Install Quarto CLI\n\nVisit the Quarto CLI download page.\nDownload the latest stable release of Quarto CLI for your operating system.\nRun the installer and follow the on-screen instructions to complete the installation.\nAfter installation, verify that Quarto CLI is correctly installed by opening a command line interface (Terminal on macOS/Linux, Command Prompt or PowerShell on Windows) and typing:\nquarto --version",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -62,7 +62,7 @@
     "text": "Step 4: Install Git for CI/CD\nGit is essential for version control and collaborative development, enabling you to track changes in your code, manage different versions of your projects, and collaborate effectively with others. It supports continuous integration and deployment (CI/CD) workflows, which are crucial for maintaining and deploying code systematically. Additionally, Git integrates with GitHub, allowing you to host and publish websites using GitHub Pages, providing a seamless way to share and showcase your projects online. By installing Git, you ensure that you can manage and synchronize your work efficiently, maintain a history of changes, collaborate seamlessly, and leverage GitHub Pages for web hosting throughout the workshop.\n\nDownload and Install Git\n\nVisit the official Git website.\nDownload the installer for your operating system.\nRun the installer and follow the prompts. You can use the default settings for most options.\nEnsure Git is added to your system PATH by checking the appropriate option during installation.\n\nConfigure Git\n\nOpen your command line interface (Terminal on macOS/Linux, Command Prompt or PowerShell on Windows).\nConfigure your Git username and email:\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@example.com\"\nVerify the installation by checking the Git version:\ngit --version\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf you are in a fresh Python 3 environment, installing the jupyter package will provide everything required to execute Jupyter kernels with Quarto:\npython3 -m pip install jupyter\n\n\nThe publishing workflow is the process in which external resources are prepared and collated together with the help of an authoring tool and subsequently rendered with a formatting tool to generate a publishable output that can be delivered in various forms. This is visualised by the following figure.",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -73,7 +73,7 @@
     "text": "Literate Programming Workflow\n\n\n\n\n\n---\n Literate Programming Workflow\n---\ngraph TD\n    A[Python] --&gt;|Code Execution| B[Quarto CLI]\n    B --&gt;|Document Rendering| C[Technical Documents]\n    B --&gt;|Document Rendering| D[Blogs]\n    B --&gt;|Document Rendering| E[Websites]\n    E --&gt;|Host| F[GitHub Pages]\n    G[Git] --&gt;|Version Control| C\n    G --&gt;|Version Control| D\n    G --&gt;|Version Control| E\n    G --&gt;|CI/CD| F\n\n    subgraph Development\n        A\n        B\n        G\n    end\n\n    subgraph Output\n        C\n        D\n        E\n        F\n    end\n\n    style Development fill:#f9f,stroke:#333,stroke-width:2px\n    style Output fill:#ccf,stroke:#333,stroke-width:2px",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -84,7 +84,7 @@
     "text": "Creating Your Personal Website\nIn the digital era, a personal website is an essential tool for engineering students looking to showcase their skills, projects, and achievements. It acts as an online portfolio, a platform for sharing insights, and a way to make a professional impression. Creating your own website involves several key steps, from planning and design to development and hosting. This guide will walk you through the process of designing a user-friendly site, building it with the right tools, testing and optimizing its performance, and finally, hosting it for the world to see. Whether you want to present your academic projects, share your resume, or maintain a blog, a well-crafted personal website can enhance your visibility and open up new opportunities in your engineering career.",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -95,7 +95,7 @@
     "text": "Step 1: Clone the Website template respository from Github\nCopy the following Github repo url and clone using Vscode source control.\nhttps://github.com/sijuswamy/Website-Template",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
@@ -106,7 +106,7 @@
     "text": "Step 2: Open the folder in the VScode and change and update the necessary details and content.\nYou can author Quarto documents that include Python code using any text or notebook editor. No matter what editing tool you use, you’ll always run quarto preview first to setup a live preview of changes in your document. Live preview is available for both HTML and PDF output. For example:\nUse any of the following options to create your personal website designed in Quarto.\n# preview as html\nquarto preview index.qmd\n\n# preview as pdf\nquarto preview index.qmd --to pdf\n\n# preview a jupyter notebook\nquarto preview index.ipynb\n\nRendering\nYou can use quarto render command line options to control caching behavior without changing the document’s code. Use options to force the use of caching on all chunks, disable the use of caching on all chunks (even if it’s specified in options), or to force a refresh of the cache even if it has not been invalidated:\n# use a cache (even if not enabled in options)\nquarto render example.qmd --cache \n\n# don't use a cache (even if enabled in options)\nquarto render example.qmd --no-cache \n\n# use a cache and force a refresh \nquarto render example.qmd --cache-refresh",
     "crumbs": [
       "Home",
-      "Setting Up of Quarto"
+      "Setting-up"
     ]
   },
   {
