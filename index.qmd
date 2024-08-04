@@ -53,4 +53,4 @@ Join us for this hands-on introductory tutorial to the Quarto publishing system.
 
 Places are limited, please register by filling out the form below. The form will be closed when no more spots are available. 
 
-[https://forms.gle/wyGmPozDT1y3MPuE7](Click here for register:)
+[https://forms.gle/wyGmPozDT1y3MPuE7]()
