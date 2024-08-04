@@ -18,6 +18,7 @@ format:
   html:
     mermaid:
       theme: dark
+    
   revealjs:
     output-file: slides-ML.html
     width: 960
@@ -35,48 +36,38 @@ Machine learning represents a sophisticated approach to solving problems by leve
 The Classification of Machine Learning Algorithms is shown below.
 
 ```{mermaid}
-graph TD
-    A[Machine Learning Algorithms] --> B[Supervised Learning]
+graph LR
+    A[Machine Learning]
+    A --> B[Supervised Learning]
     A --> C[Unsupervised Learning]
     A --> D[Reinforcement Learning]
+    
+    B --> B1[Classification]
+    B --> B2[Regression]
+    
+    B1 --> B1a[Decision Trees]
+    B1 --> B1b[Random Forests]
+    B1 --> B1c[SVM]
+    B1 --> B1d[Neural Networks]
+    
+    B2 --> B2a[Linear Regression]
+    B2 --> B2b[Polynomial Regression]
+    B2 --> B2c[Ridge Regression]
+    
+    C --> C1[Clustering]
+    C --> C2[Dimensionality Reduction]
+    
+    C1 --> C1a[K-Means]
+    C1 --> C1b[Hierarchical Clustering]
+    C1 --> C1c[DBSCAN]
+    
+    C2 --> C2a[PCA]
+    C2 --> C2b[LDA]
+    
+    D --> D1[Q-Learning]
+    D --> D2[Deep Q-Networks]
+    D --> D3[Policy Gradient Methods]
 
-    B --> E[Classification]
-    B --> F[Regression]
-
-    E --> G[Decision Trees]
-    E --> H[Random Forests]
-    E --> I[Support Vector Machines]
-    E --> J[Neural Networks]
-
-    F --> K[Linear Regression]
-    F --> L[Polynomial Regression]
-    F --> M[Ridge Regression]
-
-    C --> N[Clustering]
-    C --> O[Dimensionality Reduction]
-
-    N --> P[K-Means Clustering]
-    N --> Q[Hierarchical Clustering]
-    N --> R[DBSCAN]
-
-    O --> S[Principal Component Analysis (PCA)]
-    O --> T[Linear Discriminant Analysis (LDA)]
-
-    D --> U[Q-Learning]
-    D --> V[Deep Q-Networks (DQN)]
-    D --> W[Policy Gradient Methods]
-
-    %% Styling %%
-    classDef main fill:#f5f5f5,stroke:#333,stroke-width:2px;
-    classDef supervised fill:#e6f7ff,stroke:#0056b3;
-    classDef unsupervised fill:#e6ffe6,stroke:#004d00;
-    classDef reinforcement fill:#fff5e6,stroke:#cc6600;
-
-    class A,main;
-    class B,C,D,supervised,unsupervised,reinforcement;
-    class E,F,supervised;
-    class N,O,unsupervised;
-    class U,V,W,reinforcement;
 ```
 ::::
 
