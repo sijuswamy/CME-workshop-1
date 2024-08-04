@@ -23,7 +23,7 @@ website:
       - href: introduction/index.qmd
         text: Introduction
       - href: setup/index.qmd
-      - text: Setting-up
+        text: Setting-up
       - hands_on.qmd
       - href: ML/ML_lesson.qmd
         text: ML Project
