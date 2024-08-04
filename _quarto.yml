@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site
+  
 website:
   title: "Workshop on Advanced Literate Programming and Machine Learning"
   site-url: https://sijuswamy.github.io/CME-workshop-1/
@@ -22,7 +22,8 @@ website:
         text: Home
       - href: introduction/index.qmd
         text: Introduction
-      - introduction/setup.qmd
+      - href: setup/index.qmd
+      - text: Setting-up
       - hands_on.qmd
       - href: ML/ML_lesson.qmd
         text: ML Project

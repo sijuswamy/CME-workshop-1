@@ -18,10 +18,13 @@ format:
   html:
     mermaid:
       theme: dark
-  revealjs: 
-    default:
-      mermaid:
-        theme: dark
+  revealjs:
+    output-file: slides-quarto.html
+    width: 960
+    height: 700
+    css: assets/style.css
+    mermaid:
+      theme: dark
 ---
 
 :::: {.content-hidden when-format="revealjs"}
