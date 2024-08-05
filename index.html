@@ -41,6 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -160,12 +161,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ML/ML_lesson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ML Project</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
@@ -242,6 +237,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Join us for this hands-on introductory tutorial to the Quarto publishing system. You will learn how to use Quarto to set up a personal academic website, advertise your work, build a blogging environment, as well as create slides, pdf’s or other online materials. At the end of the session you will have the main structure for your personal website, hosted for free in GitHub and with a simple and automatic deployment workflow using GitHub actions. We will provide use case examples and a step-by-step guide to follow along the session.</p>
 <section id="agenda" class="level3">
 <h3 class="anchored" data-anchor-id="agenda">Agenda</h3>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>Day 1</strong></p>
 <ul>
 <li>9:00 Introduction to Literate Programming</li>
 <li>9.10 Testimonials</li>
@@ -260,11 +258,38 @@ ul.task-list li input[type="checkbox"] {
 <li>04.20 Day 1 concluding session</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><strong>Day 2</strong></p>
+<ul>
+<li>9:00 Introduction to Machine Learning</li>
+<li>9.50 Break</li>
+<li>Hands-on
+<ul>
+<li>10:00 <code>Python</code> libraries for Machine Learning</li>
+<li>11:00 Design a Machine Learning Project</li>
+<li>12.30 Lunch Break</li>
+<li>01.20 Story telling with EDA</li>
+<li>02.30 Model selection, training and evaluation</li>
+<li>03:30 Break</li>
+<li>03.45 Building GUI and Model Deployment</li>
+<li>04.20 Feedback session</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="reserve-your-spot." class="level3">
 <h3 class="anchored" data-anchor-id="reserve-your-spot.">Reserve your spot.</h3>
 <p>Places are limited, please register by filling out the form below. The form will be closed when no more spots are available.</p>
-<p><a href="">https://forms.gle/wyGmPozDT1y3MPuE7</a></p>
+<p><a href="https://forms.gle/wyGmPozDT1y3MPuE7" class="uri">https://forms.gle/wyGmPozDT1y3MPuE7</a></p>
+<p>Or scan the QR Code to register:</p>
+<div id="qrcode" class="qrcode"></div>
+<script type="text/javascript">
+var qrcode = new QRCode("qrcode", {"height":128,"colorLight":"#ffffff","colorDark":"#000000","text":"https://forms.gle/wyGmPozDT1y3MPuE7","width":128});
+</script>
+    
 
 
 </section>
