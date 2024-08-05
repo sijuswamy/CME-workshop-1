@@ -33,6 +33,12 @@ Join us for this hands-on introductory tutorial to the Quarto publishing system.
 
 ### Agenda
 
+
+:::: {.columns}
+
+::: {.column width="45%"}
+**Day 1**
+
 - 9:00 Introduction to Literate Programming
 - 9.10 Testimonials
 - 9.20 Introduction to Quarto
@@ -47,10 +53,39 @@ Join us for this hands-on introductory tutorial to the Quarto publishing system.
     - 03:30 Break
     - 03.45 Personalizing Websites & Blogs
     - 04.20 Day 1 concluding session
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+**Day 2** 
+
+- 9:00 Introduction to Machine Learning
+- 9.50 Break
+- Hands-on
+    - 10:00 `Python` libraries for Machine Learning
+    - 11:00 Design a Machine Learning Project
+    - 12.30 Lunch Break
+    - 01.20 Story telling with EDA
+    - 02.30 Model selection, training and evaluation
+    - 03:30 Break
+    - 03.45 Building GUI and Model Deployment
+    - 04.20 Feedback session
+:::
+
+::::
+
+
 
 
 ### Reserve your spot. 
 
 Places are limited, please register by filling out the form below. The form will be closed when no more spots are available. 
 
-[https://forms.gle/wyGmPozDT1y3MPuE7]()
+<https://forms.gle/wyGmPozDT1y3MPuE7>
+
+Or scan the QR Code to register:
+
+{{< qrcode https://forms.gle/wyGmPozDT1y3MPuE7 >}}

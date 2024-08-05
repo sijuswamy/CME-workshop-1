@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-This site contains information about a workshop organised in Saintgits College of Engineering (Autonomous) to introduce the Students in Minor in Computational Mathematics to the new opensource publishing system. This is part of the add-on program organized by the Department of Computer Science & Engineering.
+This site contains information about a workshop organised in Saintgits College of Engineering (Autonomous) to introduce the Students of Minor in Computational Mathematics to the new open source publishing system. This is part of the add-on program organized by the Department of Computer Science & Engineering.
 
 ## Workshop organisers
 

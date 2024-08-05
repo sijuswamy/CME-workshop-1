@@ -47,7 +47,7 @@ jupyter: python3
 
 Download Quarto: [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 
-Workshop website: [https://intelligentsystemslaboratory.github.io/quarto_workshop/](https://intelligentsystemslaboratory.github.io/quarto_workshop/)
+Workshop website: [https://sijuswamy.github.io/CME-workshop-1/](https://sijuswamy.github.io/CME-workshop-1/)
 
 
 ### Setup
@@ -96,7 +96,6 @@ Workshop website: [https://intelligentsystemslaboratory.github.io/quarto_worksho
 
 - Link to the documentation: [https://quarto.org/docs/websites/website-listings.html](https://quarto.org/docs/websites/website-listings.html)
 
-- Listings example: [https://intelligentsystemslaboratory.github.io/personal_page/blog.html](https://intelligentsystemslaboratory.github.io/personal_page/blog.html)
 
 ## Templates and Customization
 

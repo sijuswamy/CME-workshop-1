@@ -25,8 +25,8 @@ website:
       - href: setup/index.qmd
         text: Setting-up
       - hands_on.qmd
-      - href: ML/ML_lesson.qmd
-        text: ML Project
+      #- href: ML/ML_lesson.qmd
+      #  text: ML Project
       - about.qmd
 
 format:
