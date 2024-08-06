@@ -80,12 +80,13 @@ Join us for this hands-on introductory tutorial to the Quarto publishing system.
 
 
 
-### Reserve your spot. 
+### Feed back form. 
 
-Places are limited, please register by filling out the form below. The form will be closed when no more spots are available. 
+We would greatly appreciate it if you could take a few moments to complete our feedback form.
 
-<https://forms.gle/wyGmPozDT1y3MPuE7>
+Please click the link below or scan the QR code to access the feedback form:
 
-Or scan the QR Code to register:
+<https://forms.gle/bHKwtrkV8JoN8KCc6>
 
-{{< qrcode https://forms.gle/wyGmPozDT1y3MPuE7 >}}
+
+{{< qrcode https://forms.gle/bHKwtrkV8JoN8KCc6 >}}
