@@ -31,7 +31,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: yeti
     css: styles.css
     toc: true
 
@@ -42,3 +42,7 @@ sphinx:
     - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
   extra_extensions:
     - sphinxcontrib.mermaid # Draw diagrams with Mermaid
+body-header: | 
+  This Cource is designed and implemented by Department of Mathematics
+margin-header: |
+  ![CME](/images//CME_logo.JPG)

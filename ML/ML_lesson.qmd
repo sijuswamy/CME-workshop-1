@@ -31,8 +31,9 @@ execute:
   enabled: true
 ---
 
-:::: {.content-hidden when-format="revealjs"}
 ## Introduction to Machine Learning
+
+:::: {.content-hidden when-format="revealjs"}
 
 Machine learning represents a sophisticated approach to solving problems by leveraging data to inform and improve decision-making processes, contrasting sharply with traditional rule-based systems. Unlike rule-based learning, which relies on predefined rules and logic to make decisions, machine learning algorithms dynamically adapt and learn from patterns within data. This enables them to handle complex and variable inputs without explicit programming for every scenario. Essentially, machine learning is a richer computational translation of mathematical and statistical models, allowing for more flexible and accurate predictions by identifying patterns and insights that rule-based systems might overlook. A wonderful aspect of machine learning is its ability to store the learned patterns and knowledge, allowing models to be reused and refined over time for future predictions, thereby continuously enhancing their performance as more data becomes available.
 
@@ -72,9 +73,19 @@ graph LR
     D --> D3[Policy Gradient Methods]
 
 ```
+
 ::::
 
+## Set-up ML environment
 
+In this project we used specific versions of the libraries. Save the following libraries in a text file- `requirements.txt`. Install all these libraries using the code `python -r pip install requirements.txt`.
+
+```sh
+joblib==1.3.2
+streamlit==1.31.1
+scikit-learn==1.2.2
+pandas==2.0.0
+```
 :::: {.content-hidden when-format="revealjs"}
 :::{note}
 
@@ -84,6 +95,31 @@ graph LR
 ## End-to-End Machine Learning Project: Classifying the Iris Dataset
 
 In this project, we will walk through an end-to-end machine learning task using the Iris dataset. This comprehensive exercise will cover all stages of a machine learning pipeline, from data exploration to model deployment.
+
+## The Machine Learning Pipe-line
+
+```{mermaid}
+graph TD
+    A[1. Data Collection] --> B[2. Data Preprocessing]
+    B --> C[3. EDA]
+    C --> D[4. Feature Selection]
+    D --> E[5. Train-Test Split]
+    E --> F[6. Model Training]
+    F --> G[7. Model Evaluation]
+    G --> H[8. Model Tuning]
+    H --> I[9. Deployment]
+
+    %% Position nodes in an arc-like manner
+    A --> |" /////" | I
+    B --> |" /////" | H
+    C --> |" /////" | G
+    D --> |" /////" | F
+    E --> |" /////" | E
+
+    %% Styling
+    classDef arcFill fill:#ff,stroke:#333,stroke-width:2px;
+    class A,B,C,D,E,F,G,H,I arcFill;
+```
 
 ## 1. Introduction to the Dataset
 The Iris dataset is a classic dataset in machine learning, widely used for benchmarking classification algorithms. It consists of measurements from 150 iris flowers, with four features- Sepal Length, Sepal Width, Petal Length, and Petal Width. Each sample is labeled with one of three species- Iris-setosa, Iris-versicolor, and Iris-virginica.
@@ -98,8 +134,13 @@ Our objective is to build a classification model that can accurately predict the
 
 - **Exploratory Data Analysis (EDA):** We will begin by analyzing the dataset to understand its structure and characteristics. This includes visualizing distributions, checking for missing values, and examining class balance.
 
+:::: {.content-hidden when-format="revealjs"}
+
 In this stage we need to load the dataset using appropriate `python` libraries. We want to follow a systematic approach to understand the dataset’s structure, clean the data, and gain insights. Here’s a step-by-step procedure for EDA using Python. As the first step let's load necessary `python` libraries for this job.
+::::
+
 ```{python}
+# loading necessary libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -107,14 +148,21 @@ import seaborn as sns
 ```
 
 ```{python}
+# used to supress warning
 import warnings
 warnings.filterwarnings('ignore')
 ```
+
+:::: {.content-hidden when-format="revealjs"}
+
 In this EDA process, libraries such as `pandas`, `seaborn`, `matplotlib`, and `scikit-learn` are essential. `Pandas` is used for efficient data manipulation and preprocessing, allowing us to load, clean, and manage the dataset seamlessly. `Seaborn` and `matplotlib` provide advanced visualization capabilities to explore the distribution, outliers, and relationships among features, which are crucial for understanding the dataset’s structure and potential issues. Together, these libraries offer a comprehensive toolkit for conducting thorough exploratory data analysis, ensuring that the dataset is well-understood and ready for subsequent modeling.
 
 In the next step, we load the Iris dataset directly from a remote URL using `pandas`. The code `iris_df = pd.read_csv('https://raw.githubusercontent.com/sijuswamy/Model_Deployment/main/iris.csv')` reads the CSV file from the specified GitHub repository and creates a DataFrame named `iris_df`, which contains the dataset for further analysis.
 
+::::
+
 ```{python}
+# loading dataset
 iris_df=pd.read_csv('https://raw.githubusercontent.com/sijuswamy/Model_Deployment/main/iris.csv')
 ```
 *Viewing the beggining Dataset:* The code `iris_df.head()` displays the first five rows of the `iris_df` DataFrame, providing a quick overview of the dataset's structure and the initial entries. We just visualize first 5 samples in the dataset as a table.
@@ -122,6 +170,9 @@ iris_df=pd.read_csv('https://raw.githubusercontent.com/sijuswamy/Model_Deploymen
 ```{python}
 iris_df.head()
 ```
+
+:::: {.content-hidden when-format="revealjs"}
+
 *Viewing the End of the Dataset:* The code `iris_df.tail()` displays the last five rows of the `iris_df` DataFrame, offering insight into the final entries and the dataset's structure at its end.
 
 ```{python}
@@ -152,6 +203,10 @@ iris_df.describe(include='all')
 
 These basic `pandas` functions are most important for understand the data well. Now move on to the next level of data preparation namely Data Cleaning.
 
+::::
+
+## 3.a Data cleaning
+
 - **Data Cleaning:** We will handle any missing values and ensure the data is ready for modeling. Basic preprocessing tasks will include feature scaling and normalization. Various steps in this stage is explained below.
 
 *Checking for Duplicates:* The code `iris_df.duplicated().sum()` counts the number of duplicate rows in the `iris_df` DataFrame, helping identify any redundancy in the dataset that may need to be addressed.
@@ -159,6 +214,8 @@ These basic `pandas` functions are most important for understand the data well. 
 ```{python}
 iris_df.duplicated().sum()
 ```
+
+:::: {.content-hidden when-format="revealjs"}
 
 :::{.callout-tip}
 Checking for duplicates is important because duplicate rows can skew analysis, introduce bias, and affect the performance of machine learning models. By identifying and removing duplicates, we ensure that each observation is unique and that the dataset accurately represents the underlying data without redundancy.
@@ -199,6 +256,12 @@ else:
     print("Column 'variety' not found in the DataFrame.")
 ```
 
+::::
+
+## 3.b Statistical Summary- Skewness, Kurtosis and Correlation
+
+:::: {.content-hidden when-format="revealjs"}
+
 *Checking Skewness:* The code `iris_num.skew()` calculates the skewness of each numeric column in the `iris_num` DataFrame, providing insights into the asymmetry of the data distribution. Skewness values between -0.5 and 0.5 suggest a relatively normal distribution, while values outside this range indicate potential skewness that may require transformation for better modeling.
 
 ```{python}
@@ -210,6 +273,14 @@ iris_num.skew()
 ```{python}
 iris_num.kurt()
 ```
+
+::::
+
+## 3.c Exploratory Data Analysis
+
+In this section we will perform various graphical analysis of features over the classes of target.
+
+:::: {.content-hidden when-format="revealjs"}
 
 *Visualizing Class Distribution:* The code `print(iris_df['variety'].value_counts())` prints the count of each unique value in the `variety` column, showing the distribution of classes in the dataset. The `sns.countplot(iris_df['variety'])` function from Seaborn creates a count plot to visually represent the distribution of classes, helping to easily identify any class imbalances or differences in class frequencies.
 
@@ -290,6 +361,16 @@ axes[1,1].set_title("Distribution of Petal Length")
 axes[1,1].hist(iris_df['petal.length'], bins=6);
 ```
 
+::::
+
+## 3.d Univariate Feature Analysis
+
+```{python}
+sns.FacetGrid(iris_df,hue="variety",height=5).map(sns.distplot,"petal.length").add_legend();
+```
+
+:::: {.content-hidden when-format="revealjs"}
+
 **Univariate feature analysis:** The code `sns.FacetGrid(iris_df, hue="variety", height=5).map(sns.distplot, "petal.width").add_legend()` creates a FacetGrid using `Seaborn` library to visualize the distribution of `petal.width` across different species in the `iris_df` DataFrame. The `hue="variety"` parameter ensures that the distribution plots are colored according to the species, while `height=5` sets the size of the plots. This visualization helps in analyzing the distribution and density of the petal width feature for each species, providing insights into how this feature varies across different classes.
 
 ```{python}
@@ -303,6 +384,14 @@ sns.FacetGrid(iris_df,hue="variety",height=5).map(sns.distplot,"sepal.length").a
 ```{python}
 sns.FacetGrid(iris_df,hue="variety",height=5).map(sns.distplot,"sepal.width").add_legend();
 ```
+
+::::
+
+## 3.e Statistical Feature Analysis
+
+In this section various features are analysed in more detail. Presence of outlair and normality of feature distribution will be checked before ML model building.
+
+:::: {.content-hidden when-format="revealjs"}
 
 *Boxplots for Feature Analysis:* The code `fig, axes = plt.subplots(2, 2, figsize=(16,9))` creates a 2x2 grid of subplots with a figure size of 16x9 inches. Each `sns.boxplot()` function call plots the distribution of a specific feature (`petal.width`, `petal.length`, `sepal.length`, `sepal.width`) against the `variety` of the iris species. The `orient='v'` parameter specifies vertical boxplots. This visualization helps in comparing the distributions of different features across species, highlighting differences in feature ranges, central tendencies, and potential outliers. The `plt.show()` command displays all the plots.
 
@@ -336,9 +425,14 @@ plt.show()
 
 The kernel density of the data along with the full distribution of the data is shown through the violin plots. We can see the probability density of the various features. Inshort, even the basic EDA give us deeper insight about the data and give hints for classification/ regression models on feature sets.
 
+::::
+
 ## 4. Model Identification and Training
 
-Based on our data exploration, we will select a suitable classification model. Based on the Exploratory Data Analysis (EDA), we found that `petal.length` and `petal.width` are the most influential features for determining the variety of the Iris flower. To classify the Iris dataset, several classification models can be employed:
+Based on our data exploration, we will select a suitable classification model. Based on the Exploratory Data Analysis (EDA), we found that `petal.length` and `petal.width` are the most influential features for determining the variety of the Iris flower. To classify the Iris dataset, several classification models can be employed. In this discussion, we will consider Logistic Regression, K-nn, Support Vector Machine, Decision Tree and Random Forest algorithms.
+
+:::: {.content-hidden when-format="revealjs"}
+
 
 ### 1. Logistic Regression
 
@@ -710,6 +804,7 @@ print(report)
 ```
 For this project, we will use the `RandomForestClassifier`, a robust and versatile model that performs well with the Iris dataset.
 
+::::
 
 ## 5. Model Selection
 After training the model, we will evaluate its performance using various metrics such as accuracy and classification report. This will help us understand how well the model is performing and whether any improvements are needed. In this context, the `RandomForestClassifier` model is the winner. So we will select and save this model for deployment.
@@ -719,18 +814,27 @@ joblib.dump(Rf_model, 'rf_model.sav')
 ```
 
 ## 6. Deployment
+
 Finally, we will deploy our trained model using `Streamlit`, an open-source framework that allows us to create interactive web applications for real-time predictions. This will enable users to input flower measurements and receive predictions on the species.
 
+
 To deploy the Random Forest Classifier model using `Streamlit`, we'll need to set up several components for the complete workflow. Here's a step-by-step guide to create the necessary files:
+
+## 6.a Setting-up `Streamlit`
 
 *1. Prepare the Environment:* In this step install the `streamlit` library using folowing code.
 
 ```python
 python -m pip install streamlite
 ```
+
+## 6.b Set-up source code for Model selection
+
+
 *2. Create the source code to load the trained model-`model.py`:*
 
 This `.py` file is used to load the trained model and handle predictions.
+
 
 ```python
 # model.py
@@ -743,6 +847,8 @@ def load_model():
     return model
 
 ```
+
+## 6.c Set-up source code for Prediction
 
 
 *3. Create `prediction.py`:*
@@ -760,9 +866,14 @@ def predict(data):
     model = load_model()
     return model.predict(data)
 ```
+
+## 6.d Set-up source code for ML application
+
 *4. Creating the `app.py`:*
 
 This is the main `Streamlit` application file. It provides the user interface for inputting data and displaying predictions.
+
+:::: {.content-hidden when-format="revealjs"}
 
 ```python
 import streamlit as st
@@ -802,6 +913,10 @@ st.markdown(
     '`Create by` [Intel-Unnati](https://sijuswamy.github.io/mywebsite/) | \
          `Code:` [GitHub](https://github.com/sijuswamy)')
 ```
+
+::::
+## 6.e Running the application in localhost
+
 *5. Run the `Streamlit` App:*
 
 Navigate to the directory containing your files and run the `Streamlit` app using the following command:
@@ -809,16 +924,11 @@ Navigate to the directory containing your files and run the `Streamlit` app usin
 ```python
 python streamlit run app.py
 ```
+:::: {.content-hidden when-format="revealjs"}
+
 This command will start a local web server and open the application in your default web browser. You can input the iris flower measurements and get the predicted variety.
 
-In this project we used specific versions of the libraries. Save the following libraries in a text file- `requirements.txt`.
 
-```sh
-joblib==1.3.2
-streamlit==1.31.1
-scikit-learn==1.2.2
-pandas==2.0.0
-```
 
 
 :::{.callout-tip}
@@ -838,3 +948,5 @@ pandas==2.0.0
 A screenshot of your website is shown below.
 
 ![](images/stlit-snap.png){.absolute top=75}
+
+::::
