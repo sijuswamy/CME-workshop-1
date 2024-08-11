@@ -8,10 +8,13 @@ website:
   repo-branch: main
   repo-actions: [issue]
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
-      - about.qmd    
+      - href: about.qmd 
+        text: About the Course
+      - href: feedback.qmd
+        text: Feed Back  
   sidebar:
     style: "docked"
     logo: "./images/workshop_cover.png"
